@@ -1,0 +1,197 @@
+/* ==========================================================================
+   EGYPTAIR — RAMADAN IFTAR: "رحلة تجمعنا"
+   “A JOURNEY OF LIGHT” — WARM IVORY & DEEP AVIATION BLUE DESIGN SYSTEM
+   Luxury Editorial Stationery • Tactile Architecture • Champagne Gold Light
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Warm Ivory, Soft Pearl & Tactile Stationery Palette */
+  --color-paper-base: #FAF8F3;
+  --color-paper-warm: #F4F0E6;
+  --color-paper-surface: #FFFFFF;
+  --color-paper-subtle: #EDE7DA;
+  --color-paper-card: rgba(255, 255, 255, 0.85);
+
+  /* EgyptAir Deep Aviation Blue Palette */
+  --color-aviation-deep: #002B55;
+  --color-aviation-royal: #003B70;
+  --color-aviation-navy: #062344;
+  --color-aviation-midnight: #031428;
+  --color-aviation-accent: #0E4D8F;
+
+  /* Champagne Gold Light (The Travelling Journey Light) */
+  --color-gold-light: #D4B66A;
+  --color-gold-base: #C5A45A;
+  --color-gold-deep: #A6832F;
+  --color-gold-glow: rgba(197, 164, 90, 0.25);
+  --color-gold-subtle: rgba(197, 164, 90, 0.12);
+
+  /* Editorial Typography Tones */
+  --color-text-primary: #002B55;
+  --color-text-secondary: #3D4F66;
+  --color-text-muted: #6B7C93;
+  --color-text-light: #FAF8F3;
+
+  /* Stationery Gradients */
+  --grad-paper-hero: radial-gradient(circle at 50% 35%, #FFFFFF 0%, #FAF7F0 50%, #F2EDE2 100%);
+  --grad-paper-warm: linear-gradient(180deg, #FAF8F3 0%, #F4F0E6 100%);
+  --grad-aviation-blue: linear-gradient(135deg, #002B55 0%, #003B70 100%);
+  --grad-gold-text: linear-gradient(135deg, #8C6A1E 0%, #C5A45A 50%, #7A5B17 100%);
+  --grad-gold-line: linear-gradient(90deg, transparent, #C5A45A 20%, #D4B66A 50%, #C5A45A 80%, transparent);
+
+  /* Typography System */
+  --font-arabic-display: 'Noto Kufi Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-arabic-body: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-english-display: 'Cinzel', serif;
+  --font-english-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Shadows & Depth */
+  --shadow-stationery: 0 10px 30px rgba(0, 43, 85, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-luxury: 0 20px 50px rgba(0, 43, 85, 0.09), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-gold-halo: 0 0 40px rgba(197, 164, 90, 0.35);
+
+  /* Animation Easing */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Spatial Grid & Padding */
+  --container-max: 1140px;
+  --container-pad: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+/* Reset & Base Elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  direction: rtl;
+  text-align: right;
+  background-color: var(--color-paper-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-arabic-body);
+  font-size: 16px;
+  line-height: 1.85;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+  background-color: var(--color-paper-base);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(197, 164, 90, 0.28);
+  color: #002B55;
+}
+
+/* Tactile Paper Texture */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 900;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Celestial Canvas */
+#celestial-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  position: relative;
+}
+
+/* Typography Utility Classes */
+.text-gold {
+  color: var(--color-gold-base);
+  background: var(--grad-gold-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-blue {
+  color: var(--color-aviation-deep);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-arabic-display);
+  font-size: clamp(0.75rem, 1vw, 0.88rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-gold-base);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-base));
+}
+
+.eyebrow::after {
+  background: linear-gradient(90deg, var(--color-gold-base), transparent);
+}
+
+.section-title {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.85rem, 3.8vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 1.25rem;
+  color: var(--color-aviation-deep);
+  letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+  font-family: var(--font-arabic-body);
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+  max-width: 48ch;
+  margin-bottom: 2.5rem;
+}
+
+/* Cinematic Scene Base */
+.cinematic-screen {
+  position: relative;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: clamp(3.5rem, 6.5vw, 6.5rem);
+  z-index: 10;
+}

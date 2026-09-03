@@ -1,0 +1,114 @@
+/* ==========================================================================
+   EGYPTAIR — RAMADAN IFTAR: ANIMATIONS & MOTION SYSTEM
+   ========================================================================== */
+
+/* SplitType & Typography Reveal Defaults */
+.split-line, .split-word {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.reveal-text-char, .reveal-text-word {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.8s var(--transition-cinematic), opacity 0.8s ease;
+}
+
+.is-revealed .reveal-text-char,
+.is-revealed .reveal-text-word {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* Image Clip-Path Cinematic Reveals */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.4s var(--transition-cinematic);
+}
+
+.clip-reveal.active {
+  clip-path: inset(0 0 0 0);
+}
+
+.clip-reveal-vertical {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.4s var(--transition-cinematic);
+}
+
+.clip-reveal-vertical.active {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Stagger Fade Up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--transition-cinematic), transform 1s var(--transition-cinematic);
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Atmospheric Glow Breathing */
+.glow-pulse {
+  animation: glowPulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.25));
+  }
+  100% {
+    filter: drop-shadow(0 0 45px rgba(232, 200, 114, 0.6)) drop-shadow(0 0 80px rgba(212, 175, 55, 0.3));
+  }
+}
+
+/* Subtle Floating Element */
+.float-subtle {
+  animation: floatSubtle 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatSubtle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Starlight Shimmer */
+.star-shimmer {
+  animation: starShimmer 3s ease-in-out infinite alternate;
+}
+
+@keyframes starShimmer {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Reduced Motion Override for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .clip-reveal, .clip-reveal-vertical {
+    clip-path: none !important;
+  }
+  
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal-text-char, .reveal-text-word {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

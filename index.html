@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مصر للطيران — رحلة تجمعنا | إفطار رمضان الاستثنائي</title>
+  <meta name="description"
+    content="رحلة تجمعنا — تجربة دعوة سينمائية فاخرة من مصر للطيران لأمسية رمضانية استثنائية. رحلة من نور تجمع الأحبة.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌙%3C/text%3E%3C/svg%3E">
+
+  <!-- Official Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- External Libraries: GSAP, ScrollTrigger, Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Subtle Tactile Paper Grain & Celestial Stardust Canvas -->
+  <div class="film-grain" aria-hidden="true"></div>
+  <canvas id="celestial-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Cursor (Desktop Only) -->
+  <div class="custom-cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-outline" aria-hidden="true"></div>
+
+  <!-- Cinematic Transition Portal -->
+  <div id="transition-portal" aria-hidden="true"></div>
+
+  <!-- Continuous Travelling Light Beam (The Core Journey Element) -->
+  <div id="journey-travelling-light" aria-hidden="true"></div>
+
+  <!-- Journey Progress Indicator -->
+  <nav class="journey-progress-nav" aria-label="مراحل رحلة النور">
+    <a href="#scene-first-light" class="progress-step-item active" data-step="0">
+      <span class="progress-dot"></span>
+      <span class="progress-label">٠١ النور الأول</span>
+    </a>
+    <a href="#scene-gathering" class="progress-step-item" data-step="1">
+      <span class="progress-dot"></span>
+      <span class="progress-label">٠٢ مائدة اللقاء</span>
+    </a>
+    <a href="#scene-invitation" class="progress-step-item" data-step="2">
+      <span class="progress-dot"></span>
+      <span class="progress-label">٠٣ نص الدعوة</span>
+    </a>
+    <a href="#scene-moment" class="progress-step-item" data-step="3">
+      <span class="progress-dot"></span>
+      <span class="progress-label">٠٤ الموعد والبرنامج</span>
+    </a>
+    <a href="#scene-arrival" class="progress-step-item" data-step="4">
+      <span class="progress-dot"></span>
+      <span class="progress-label">٠٥ الوصول والوجهة</span>
+    </a>
+    <a href="#scene-rsvp" class="progress-step-item" data-step="5">
+      <span class="progress-dot"></span>
+      <span class="progress-label">٠٦ تأكيد الحضور</span>
+    </a>
+  </nav>
+
+  <!-- ========================================================================
+       SCREEN 00 — BRANDED LOADING EXPERIENCE
+       ======================================================================== -->
+  <aside id="cinematic-loader" aria-label="شاشة التحميل">
+    <div class="loader-content">
+      <div class="brand-plaque loader-plaque">
+        <img src="assets/images/main-logo.png" alt="مصر للطيران — EgyptAir" class="brand-logo-img logo-loader">
+      </div>
+      <div class="loader-journey-track">
+        <div class="loader-journey-beam"></div>
+      </div>
+      <p class="loader-text">نستعد لرحلة النور…</p>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       SCENE 01 — THE FIRST LIGHT (THE SIGNATURE OPENING)
+       ======================================================================== -->
+  <section id="scene-first-light" class="screen-hero">
+    <div class="hero-atmosphere-backdrop"></div>
+
+    <!-- Opening Starlight Point (The Flight Path Born from Light) -->
+    <div id="opening-light-point" class="opening-light-point"></div>
+
+    <div class="hero-celestial-core">
+      <!-- Minimalist Golden Crescent Moon -->
+      <div class="crescent-portal-wrap">
+        <div class="crescent-halo"></div>
+        <svg class="crescent-moon-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="crescentGrad" x1="30" y1="20" x2="170" y2="180" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="35%" stop-color="#D4B66A" />
+              <stop offset="100%" stop-color="#A6832F" />
+            </linearGradient>
+            <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+          <path
+            d="M152,32 C96,32 50,74 50,132 C50,156 60,178 76,194 C46,176 26,142 26,104 C26,56 64,16 112,16 C126,16 140,21 152,32 Z"
+            fill="url(#crescentGrad)" filter="url(#softGlow)" />
+        </svg>
+      </div>
+
+      <div class="eyebrow hero-eyebrow">أمسية رمضانية رسمية</div>
+      <h1 class="hero-headline text-blue">رحلة تجمعنا</h1>
+      <p class="hero-quote">"في رمضان، أجمل الرحلات هي التي تجمعنا."</p>
+
+      <!-- EgyptAir Host Seal Plaque -->
+      <div class="brand-plaque hero-plaque">
+        <img src="assets/images/main-logo.png" alt="مصر للطيران — EgyptAir" class="brand-logo-img logo-hero">
+      </div>
+
+      <p class="hero-host-statement">يسر مصر للطيران دعوتكم إلى أمسية رمضانية استثنائية تليق بمقامكم الكريم</p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SCENE 02 — THE GATHERING (CIRCULAR ARCHITECTURAL UNITY)
+       ======================================================================== -->
+  <section id="scene-gathering" class="cinematic-screen screen-gathering">
+    <div class="container">
+      <div class="gathering-layout">
+        <div class="eyebrow">مائدة تجمعنا</div>
+        <h2 class="section-title text-blue">حين يجمعنا رمضان</h2>
+        <p class="section-subtitle" style="margin-inline: auto;">
+          تصبح اللحظات أجمل… وتكتمل بهجة الشهر الفضيل بحضوركم الكريم
+        </p>
+
+        <!-- Gathering Photo -->
+        <div class="gathering-photo-stage">
+          <div class="gathering-photo-glow"></div>
+          <img src="assets/images/ChatGPT Image Sep 4, 2026, 12_04_05 AM.png" alt="أمسية رمضانية — مائدة تجمعنا"
+            class="gathering-hero-photo">
+          <div class="gathering-photo-overlay"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SCENE 04 — THE OFFICIAL INVITATION (ROYAL EDITORIAL PRINT)
+       ======================================================================== -->
+  <section id="scene-invitation" class="cinematic-screen screen-royal-invitation">
+    <div class="container">
+      <div class="royal-stationery-card">
+        <!-- Delicate Gold Corner Architectural Trims -->
+        <div class="stationery-corner top-right"></div>
+        <div class="stationery-corner top-left"></div>
+        <div class="stationery-corner bottom-right"></div>
+        <div class="stationery-corner bottom-left"></div>
+
+        <div class="stationery-header">
+          <img src="assets/images/main-logo.png" alt="مصر للطيران — EgyptAir" class="brand-logo-img logo-stationery">
+          <div class="stationery-eyebrow">دعوة رسمية خاصة</div>
+        </div>
+
+        <div class="stationery-body">
+          <h2 class="invitation-main-title text-blue">
+            يسر شركة مصر للطيران
+          </h2>
+          <p class="invitation-main-statement">
+            دعوة سعادتكم الكريمة لمشاركتنا أمسية الإفطار الرمضاني السنوي، احتفاءً بروح التواصل وتقديرًا لمسيرتكم
+            المباركة وشراكتكم الغالية.
+          </p>
+        </div>
+
+        <div class="stationery-footer">
+          <div class="footer-sig-block">
+            <span class="sig-name text-blue">شركة مصر للطيران</span>
+            <span class="sig-role">الناقل الوطني لجمهورية مصر العربية</span>
+          </div>
+          <div class="footer-seal-emblem">
+            <span class="seal-gold-circle">🌙</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SCENE 05 — THE MOMENT (OFFICIAL PROGRAM & TIMELINE)
+       ======================================================================== -->
+  <section id="scene-moment" class="cinematic-screen screen-moment">
+    <div class="container">
+      <div class="moment-layout">
+        <header style="text-align: center;">
+          <div class="eyebrow">الموعد والبرنامج الرسمي</div>
+          <h2 class="section-title text-blue">موعد لقائنا</h2>
+          <p class="section-subtitle" style="margin-inline: auto;">
+            يسعدنا استقبالكم في ليلة مباركة من ليالي الشهر الفضيل وفق الجدول التالي
+          </p>
+        </header>
+
+        <!-- Large Date Visual Display -->
+        <div class="royal-date-banner">
+          <div class="date-day-badge">يوم الثلاثاء</div>
+          <div class="date-main-digits text-blue">١٥ رمضان ١٤٤٦ هـ</div>
+          <div class="date-gregorian">الموافق ٢٥ مارس ٢٠٢٥ م</div>
+        </div>
+
+        <!-- Architectural Program Timeline -->
+        <div class="official-program-timeline">
+          <!-- Timeline Connected Spine -->
+          <div class="timeline-spine-track" aria-hidden="true"></div>
+
+          <!-- Program Item 01: Reception -->
+          <div class="program-item-row">
+            <div class="timeline-node-beacon">
+              <div class="beacon-pulse"></div>
+              <div class="beacon-core">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="program-card-content">
+              <div class="program-card-header">
+                <div class="time-pill">
+                  <span class="time-badge">٥:٠٠ م</span>
+                </div>
+                <span class="time-label-tag">مراسم الاستقبال</span>
+              </div>
+              <h3 class="program-row-title text-blue">استقبال الضيوف الكرام والترحيب</h3>
+              <p class="program-row-desc">مراسم الضيافة الرسمية مع القهوة العربية والتمور الفاخرة واللقاءات الودية</p>
+            </div>
+          </div>
+
+          <!-- Program Item 02: Iftar (Signature Highlight) -->
+          <div class="program-item-row highlight">
+            <div class="timeline-node-beacon highlight">
+              <div class="beacon-pulse"></div>
+              <div class="beacon-core">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="program-card-content highlight-content">
+              <div class="program-card-header">
+                <div class="time-pill highlight-pill">
+                  <span class="time-badge highlight">٦:١٥ م</span>
+                </div>
+                <span class="time-label-tag highlight-tag">
+                  <span class="tag-sparkle">✨</span> الحدث الأبرز — موعد الإفطار
+                </span>
+              </div>
+              <h3 class="program-row-title text-blue">مائدة الإفطار الرمضاني المبارك</h3>
+              <p class="program-row-desc">مع أذان المغرب وانطلاق مدفع الإفطار، وبوفيه ملكي يجمع أشهى أطباق التراث المصري
+                والعالمي</p>
+            </div>
+          </div>
+
+          <!-- Program Item 03: Evening Gathering -->
+          <div class="program-item-row">
+            <div class="timeline-node-beacon">
+              <div class="beacon-pulse"></div>
+              <div class="beacon-core">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="program-card-content">
+              <div class="program-card-header">
+                <div class="time-pill">
+                  <span class="time-badge">٧:٣٠ م</span>
+                </div>
+                <span class="time-label-tag">الأمسية والسهرة</span>
+              </div>
+              <h3 class="program-row-title text-blue">جلسة التواصل الرمضانية</h3>
+              <p class="program-row-desc">أوقات من الألفة والتقدير المتبادل وتبادل الأحاديث الودية على ضفاف نيل القاهرة
+                الخالد</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCENE 06 — TYPOGRAPHIC TIME INSTALLATION (COUNTDOWN) -->
+        <div class="typographic-countdown-card">
+          <h3 class="countdown-heading text-blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            الوقت المتبقي حتى موعد اللقاء
+          </h3>
+          <div class="countdown-grid">
+            <div class="countdown-unit">
+              <span id="cd-days" class="countdown-digits text-blue">14</span>
+              <span class="countdown-label">أيام</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <span id="cd-hours" class="countdown-digits text-blue">08</span>
+              <span class="countdown-label">ساعات</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <span id="cd-mins" class="countdown-digits text-blue">32</span>
+              <span class="countdown-label">دقائق</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <span id="cd-secs" class="countdown-digits text-blue">45</span>
+              <span class="countdown-label">ثوانٍ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SCENE 07 — ARRIVAL (ARCHITECTURAL PERSPECTIVE & INTERACTIVE MAP)
+       ======================================================================== -->
+  <section id="scene-arrival" class="cinematic-screen screen-destination">
+    <div class="container">
+      <header style="text-align: center; margin-bottom: 3rem;">
+        <div class="eyebrow">المقر الرسمي للأمسية</div>
+        <h2 class="section-title text-blue">وجهتنا هذه الأمسية</h2>
+        <p class="section-subtitle" style="margin-inline: auto;">
+          صرح معماري مهيب على ضفاف نيل القاهرة الخالد يجمع عراقة الضيافة المصرية وسحر المكان
+        </p>
+      </header>
+
+      <!-- Architectural Venue & Interactive Map Grid -->
+      <div class="destination-showcase-grid">
+        <!-- Venue Architectural Perspective Card -->
+        <div class="architectural-venue-card">
+          <svg class="arch-stage-svg" viewBox="0 0 1000 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="archSkyNight" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#020817" />
+                <stop offset="50%" stop-color="#071E3D" />
+                <stop offset="100%" stop-color="#0B2B55" />
+              </linearGradient>
+              <linearGradient id="archGoldPillar" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#D4B66A" />
+                <stop offset="50%" stop-color="#F4E6C3" />
+                <stop offset="100%" stop-color="#A6832F" />
+              </linearGradient>
+              <linearGradient id="archSunbeam" x1="50%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stop-color="rgba(244, 230, 195, 0.45)" />
+                <stop offset="100%" stop-color="rgba(197, 164, 90, 0.02)" />
+              </linearGradient>
+              <filter id="archGlow">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Atmospheric Night/Nile Depth -->
+            <rect width="1000" height="560" fill="url(#archSkyNight)" />
+
+            <!-- Distant Architectural Colonnade -->
+            <path d="M 300,560 L 300,220 Q 500,90 700,220 L 700,560" stroke="rgba(212, 182, 106, 0.3)" stroke-width="2"
+              fill="rgba(2, 8, 23, 0.6)" />
+
+            <!-- Middle Archway -->
+            <path d="M 180,560 L 180,180 Q 500,30 820,180 L 820,560" stroke="rgba(244, 230, 195, 0.55)"
+              stroke-width="2.5" fill="rgba(5, 20, 45, 0.55)" />
+
+            <!-- Foreground Grand Portal Arch -->
+            <path d="M 60,560 L 60,130 Q 500,-40 940,130 L 940,560" stroke="url(#archGoldPillar)" stroke-width="4.5"
+              fill="none" filter="url(#archGlow)" />
+            <path d="M 85,560 L 85,150 Q 500,-15 915,150 L 915,560" stroke="rgba(212, 182, 106, 0.4)" stroke-width="1.5"
+              fill="none" />
+
+            <!-- Mashrabiya Geometric Star Lattice -->
+            <g opacity="0.35">
+              <polygon points="500,25 545,70 500,115 455,70" stroke="#D4B66A" stroke-width="1.5" fill="none" />
+              <polygon points="500,-20 590,70 500,160 410,70" stroke="#D4B66A" stroke-width="1.5" fill="none" />
+              <polygon points="320,130 355,165 320,200 285,165" stroke="#D4B66A" stroke-width="1.2" fill="none" />
+              <polygon points="680,130 715,165 680,200 645,165" stroke="#D4B66A" stroke-width="1.2" fill="none" />
+            </g>
+
+            <!-- Luminous Light Portal Beam -->
+            <polygon points="500,0 200,560 800,560" fill="url(#archSunbeam)" />
+
+            <!-- Nile Waves Reflections -->
+            <path d="M 0,500 Q 250,475 500,500 T 1000,500" stroke="rgba(212, 182, 106, 0.3)" stroke-width="2"
+              fill="none" />
+            <path d="M 0,530 Q 250,510 500,530 T 1000,530" stroke="rgba(244, 230, 195, 0.2)" stroke-width="1.5"
+              fill="none" />
+          </svg>
+
+          <!-- Luxury Venue Information Plaque -->
+          <div class="venue-overlay-content">
+            <div class="venue-eyebrow-tag">
+              <span class="eyebrow-line"></span>
+              <span>المقر الرسمي للأمسية</span>
+              <span class="eyebrow-line"></span>
+            </div>
+            <h3 class="destination-place-name text-blue">قصر النيل الملكي — القاهرة</h3>
+
+            <div class="venue-address-row">
+              <div class="venue-pin-wrap">
+                <svg class="venue-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="venue-address-text">
+                <span class="address-street">كورنيش النيل، حي جاردن سيتي العريق</span>
+                <span class="address-region">القاهرة الكبرى — جمهورية مصر العربية</span>
+              </div>
+            </div>
+
+            <div class="venue-feature-badge">
+              <span class="feature-dot"></span>
+              <span>إطلالة ساحرة على نيل القاهرة الخالد • ضيافة مصرية ملكية</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Map Card -->
+        <div class="destination-map-wrapper">
+          <div class="map-header-bar">
+            <div class="map-indicator">
+              <span class="map-pulse-dot"></span>
+              <span class="map-title-label">الخريطة التفاعلية للموقع</span>
+            </div>
+            <a href="https://maps.google.com/?q=Nile+Corniche+Garden+City+Cairo+Egypt" target="_blank"
+              rel="noopener noreferrer" class="btn-map-directions">
+              <span>فتح في الخرائط</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+          <div class="map-iframe-container">
+            <iframe
+              src="https://maps.google.com/maps?q=Nile+Corniche+Garden+City+Cairo+Egypt&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="موقع قصر النيل الملكي — القاهرة">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SCENE 08 — OFFICIAL PARTNERS (FORMAL BRAND CEREMONY)
+       ======================================================================== -->
+  <section id="scene-partners" class="cinematic-screen screen-partners">
+    <div class="container">
+      <div class="partners-executive-block">
+        <div class="eyebrow" style="margin-bottom: 2rem;">رعاة الحفل والشركاء</div>
+
+        <div class="partners-hierarchy">
+          <!-- Primary Host Plaque -->
+          <div class="partner-tier">
+            <span class="partner-tier-label">HOSTED BY</span>
+            <div class="brand-plaque partner-plaque-host">
+              <img src="assets/images/main-logo.png" alt="مصر للطيران — EgyptAir"
+                class="brand-logo-img logo-partner-host">
+            </div>
+          </div>
+
+          <!-- Official Sponsor Plaque -->
+          <div class="partner-tier">
+            <span class="partner-tier-label">OFFICIAL PARTNER</span>
+            <div class="brand-plaque partner-plaque-sponsor">
+              <img src="assets/images/karnak-logo.png" alt="الكرنك — Karnak EgyptAir"
+                class="brand-logo-img logo-partner-sponsor">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SCENE 09 — THE FINAL INVITATION & RSVP FINALE
+       ======================================================================== -->
+  <section id="scene-rsvp" class="cinematic-screen screen-rsvp">
+    <div class="container">
+      <div class="rsvp-box">
+        <div class="eyebrow">تأكيد الحضور الرسمي</div>
+        <h2 class="section-title text-blue" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.75rem;">
+          هذه الأمسية تكتمل بوجودكم
+        </h2>
+        <p class="section-subtitle" style="margin-inline: auto;">
+          يسرنا دعوتكم لمشاركتنا هذه الرحلة الرمضانية الاستثنائية. هل ستنضمون إلينا؟
+        </p>
+
+        <!-- Attendance Decision Buttons -->
+        <div class="rsvp-choices">
+          <button id="rsvp-accept-btn" class="rsvp-choice-btn primary">
+            بكل سرور، سأحضر
+          </button>
+          <button id="rsvp-decline-btn" class="rsvp-choice-btn secondary">
+            أعتذر عن الحضور
+          </button>
+        </div>
+
+        <!-- Progressive Form Simulation -->
+        <form id="rsvp-progressive-form" class="rsvp-form-progressive" onsubmit="return false;">
+          <!-- Step 1: Guest Name -->
+          <div id="rsvp-step-1" class="form-step current">
+            <div class="form-field-group">
+              <label for="rsvp-name-input" class="form-label">الاسم الكريم</label>
+              <input type="text" id="rsvp-name-input" class="form-input" placeholder="سعادة السيد / السيدة…" required>
+            </div>
+            <div class="form-step-controls">
+              <span class="step-indicator">خطوة ٠١ من ٠٣</span>
+              <button type="button" id="btn-step-1-next" class="btn-magnetic">
+                <span>المتابعة</span>
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Companions Count -->
+          <div id="rsvp-step-2" class="form-step">
+            <div class="form-field-group">
+              <label for="rsvp-companions-select" class="form-label">عدد المرافقين</label>
+              <select id="rsvp-companions-select" class="form-select">
+                <option value="0">سأحضر بمفردي (بدون مرافق)</option>
+                <option value="1">بصحبة مرافق واحد (+1)</option>
+                <option value="2">بصحبة مرافقين اثنين (+2)</option>
+              </select>
+            </div>
+            <div class="form-step-controls">
+              <button type="button" id="btn-step-2-prev" class="btn-magnetic btn-magnetic-ghost">السابق</button>
+              <span class="step-indicator">خطوة ٠٢ من ٠٣</span>
+              <button type="button" id="btn-step-2-next" class="btn-magnetic">
+                <span>المتابعة</span>
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Special Notes & Final Submit -->
+          <div id="rsvp-step-3" class="form-step">
+            <div class="form-field-group">
+              <label for="rsvp-notes-input" class="form-label">ملاحظات أو تفضيلات خاصة (اختياري)</label>
+              <textarea id="rsvp-notes-input" class="form-textarea" rows="3"
+                placeholder="تفضيلات خاصة أو رسالة للأمسية…"></textarea>
+            </div>
+            <div class="form-step-controls">
+              <button type="button" id="btn-step-3-prev" class="btn-magnetic btn-magnetic-ghost">السابق</button>
+              <span class="step-indicator">خطوة ٠٣ من ٠٣</span>
+              <button type="submit" id="btn-submit-rsvp" class="btn-magnetic">
+                <span>تأكيد الحضور ✨</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FINAL CLOSING SIGNATURE
+       ======================================================================== -->
+  <footer class="screen-closing">
+    <div class="container">
+      <div class="closing-signature-block">
+        <h2 class="closing-statement text-blue">
+          "في كل رحلة، تبقى أجمل الوجهات هي تلك التي تجمعنا."
+        </h2>
+        <div class="closing-greeting">رمضان كريم</div>
+        <p class="closing-copyright">
+          جميع الحقوق محفوظة © شركة مصر للطيران ٢٠٢٥ — الناقل الوطني لجمهورية مصر العربية
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       CONFIRMATION MODAL
+       ======================================================================== -->
+  <div id="confirmation-modal" aria-modal="true" role="dialog" aria-labelledby="confirmation-modal-title">
+    <div class="confirmation-card">
+      <svg class="confirmation-crescent-icon" viewBox="0 0 100 100" fill="none">
+        <path d="M78 15 C48 15 23 38 23 68 C23 80 28 91 36 99 C20 90 10 73 10 53 C10 28 30 8 55 8 C63 8 71 11 78 15 Z"
+          fill="#C5A45A" />
+      </svg>
+      <h2 id="confirmation-modal-title" class="confirmation-title text-blue">تم تأكيد حضوركم بنجاح ✨</h2>
+      <p class="confirmation-message">
+        نتشرف ونسعد بلقائكم في هذه الأمسية الرمضانية الاستثنائية التي تزهو بحضوركم الكريم.
+      </p>
+
+      <div class="confirmation-details-seal">
+        <div class="seal-text text-blue">شركة مصر للطيران — إفطار رمضان ١٤٤٦ هـ</div>
+      </div>
+
+      <button id="btn-close-confirmation" class="btn-magnetic btn-close-confirmation">
+        <span>العودة إلى الدعوة</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

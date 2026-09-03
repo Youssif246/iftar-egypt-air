@@ -1,0 +1,1963 @@
+/* ==========================================================================
+   EGYPTAIR — RAMADAN IFTAR: "رحلة تجمعنا"
+   “A JOURNEY OF LIGHT” — CINEMATIC EDITORIAL COMPONENT SYSTEM
+   Warm Ivory Stationery • Deep Aviation Blue • Champagne Gold Light
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BRAND PLAQUES & OFFICIAL SEALS
+   -------------------------------------------------------------------------- */
+.brand-plaque {
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid rgba(197, 164, 90, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 43, 85, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+
+.brand-plaque:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0, 43, 85, 0.14), 0 0 20px rgba(197, 164, 90, 0.2);
+}
+
+.brand-logo-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.loader-plaque {
+  padding: 1.1rem 2.2rem;
+  animation: logoPulse 2.4s ease-in-out infinite alternate;
+}
+
+.logo-loader {
+  width: clamp(130px, 15vw, 175px);
+}
+
+.hero-plaque {
+  padding: 0.65rem 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-hero {
+  width: clamp(140px, 16vw, 210px);
+}
+
+.logo-stationery {
+  width: clamp(150px, 18vw, 220px);
+}
+
+.partner-plaque-host {
+  padding: clamp(1.4rem, 2.5vw, 2rem) clamp(2.4rem, 4.5vw, 4.2rem);
+  border-radius: 12px;
+}
+
+.logo-partner-host {
+  width: clamp(170px, 20vw, 260px);
+}
+
+.partner-plaque-sponsor {
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.8rem, 3.5vw, 3rem);
+  border-radius: 10px;
+}
+
+.logo-partner-sponsor {
+  width: clamp(130px, 15vw, 200px);
+}
+
+/* --------------------------------------------------------------------------
+   SCREEN 00 — BRANDED LOADER
+   -------------------------------------------------------------------------- */
+#cinematic-loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #FAF7F0 60%, #EDE7DA 100%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s var(--ease-cinematic), visibility 0.6s;
+}
+
+#cinematic-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.loader-journey-track {
+  width: 200px;
+  height: 2px;
+  background: rgba(0, 43, 85, 0.08);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.loader-journey-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, transparent, var(--color-gold-base), #FFFFFF, var(--color-gold-base), transparent);
+  animation: journeyBeam 1.8s infinite ease-in-out;
+}
+
+.loader-text {
+  font-family: var(--font-arabic-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-aviation-deep);
+  opacity: 0.9;
+}
+
+@keyframes journeyBeam {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+@keyframes logoPulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+
+  100% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 01 — THE FIRST LIGHT (HERO)
+   -------------------------------------------------------------------------- */
+.screen-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding-block: clamp(3rem, 6vh, 5.5rem);
+  background: var(--grad-paper-hero);
+}
+
+.hero-atmosphere-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 243, 0.8) 50%, rgba(237, 231, 218, 0.6) 100%);
+  z-index: 1;
+}
+
+.opening-light-point {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 10px rgba(212, 182, 106, 0.9), 0 0 60px 20px rgba(197, 164, 90, 0.6);
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+}
+
+.hero-celestial-core {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 880px;
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.crescent-portal-wrap {
+  position: relative;
+  width: clamp(85px, 11vh, 130px);
+  height: clamp(85px, 11vh, 130px);
+  margin-bottom: clamp(1rem, 2vh, 1.6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crescent-moon-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(197, 164, 90, 0.45)) drop-shadow(0 0 45px rgba(212, 182, 106, 0.25));
+  animation: crescentFloat 5s ease-in-out infinite alternate;
+}
+
+.crescent-halo {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle, rgba(197, 164, 90, 0.22) 0%, rgba(212, 182, 106, 0.05) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: haloPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes crescentFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+@keyframes haloPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.hero-headline {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(2.4rem, 5.8vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-quote {
+  font-family: var(--font-arabic-body);
+  font-size: clamp(1.08rem, 1.8vw, 1.38rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-gold-deep);
+  margin-bottom: 1.4rem;
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+.hero-host-statement {
+  font-family: var(--font-arabic-body);
+  font-size: clamp(0.92rem, 1.15vw, 1.08rem);
+  color: var(--color-text-secondary);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   MAGNETIC BUTTONS & ACTIONS (DEEP AVIATION BLUE + GOLD RADIANCE)
+   -------------------------------------------------------------------------- */
+.btn-magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: clamp(0.85rem, 1.4vw, 1.15rem) clamp(2.4rem, 3.2vw, 3.2rem);
+  font-family: var(--font-arabic-display);
+  font-size: clamp(0.92rem, 1.05vw, 1.08rem);
+  font-weight: 500;
+  color: #FFFFFF;
+  background: var(--grad-aviation-blue);
+  border: 1px solid rgba(197, 164, 90, 0.4);
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 43, 85, 0.2), 0 0 15px rgba(197, 164, 90, 0.25);
+  transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
+  overflow: hidden;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.btn-magnetic::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 45px rgba(0, 43, 85, 0.28), 0 0 25px rgba(197, 164, 90, 0.4);
+}
+
+.btn-magnetic:hover::before {
+  opacity: 1;
+}
+
+.btn-magnetic-ghost {
+  background: #FFFFFF;
+  color: var(--color-aviation-deep);
+  border: 1px solid rgba(0, 43, 85, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 43, 85, 0.05);
+}
+
+.btn-magnetic-ghost:hover {
+  background: rgba(197, 164, 90, 0.1);
+  border-color: var(--color-gold-base);
+  color: var(--color-aviation-deep);
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.btn-magnetic:hover .btn-icon {
+  transform: translateX(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   CINEMATIC TRANSITION PORTAL
+   -------------------------------------------------------------------------- */
+#transition-portal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #D4B66A 35%, #002B55 85%, #001B44 100%);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.1);
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 02 — THE JOURNEY (PINNED SCROLL / LIGHT PATHS CONVERGENCE)
+   -------------------------------------------------------------------------- */
+.screen-journey-pinned {
+  position: relative;
+  padding-block: clamp(4rem, 7vw, 7rem);
+  background: linear-gradient(180deg, #FAF8F3 0%, #F3EFE6 50%, #FAF8F3 100%);
+}
+
+.journey-stage-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  text-align: center;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-light-canvas {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.flight-paths-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 15px rgba(197, 164, 90, 0.3));
+}
+
+.monumental-word-stage {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-card-cinematic {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.6s var(--ease-cinematic), transform 0.6s var(--ease-cinematic);
+  pointer-events: none;
+}
+
+.word-card-cinematic.current {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.word-num-badge {
+  font-family: var(--font-arabic-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gold-deep);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.word-monument {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.word-descriptor {
+  font-family: var(--font-arabic-body);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--color-text-secondary);
+  max-width: 36ch;
+}
+
+.journey-climax-statement {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(197, 164, 90, 0.3);
+  padding-top: 1.5rem;
+}
+
+.climax-text {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 03 — THE GATHERING (CIRCULAR UNITY)
+   -------------------------------------------------------------------------- */
+.screen-gathering {
+  position: relative;
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+  background: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #FAF8F3 60%, #F2EDE2 100%);
+}
+
+.gathering-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gathering-photo-stage {
+  position: relative;
+  width: clamp(280px, 70vw, 760px);
+  max-width: 760px;
+  aspect-ratio: 16 / 9;
+  margin-top: 2rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 43, 85, 0.22),
+    0 2px 8px rgba(197, 164, 90, 0.15),
+    0 0 0 2px rgba(197, 164, 90, 0.25);
+}
+
+.gathering-photo-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(197, 164, 90, 0.22) 0%, transparent 70%);
+  z-index: 0;
+  filter: blur(30px);
+  animation: coreGlow 4s ease-in-out infinite alternate;
+}
+
+.gathering-hero-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.gathering-photo-stage:hover .gathering-hero-photo {
+  transform: scale(1.04);
+}
+
+.gathering-photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(to top,
+      rgba(0, 10, 30, 0.72) 0%,
+      rgba(0, 10, 30, 0.18) 45%,
+      transparent 70%);
+}
+
+.gathering-center-label {
+  position: absolute;
+  z-index: 5;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 164, 90, 0.3);
+  padding: 0.65rem 1.5rem;
+  border-radius: 2rem;
+  white-space: nowrap;
+}
+
+.gathering-center-label .label-arabic {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.gathering-center-label .label-sub {
+  font-family: var(--font-english-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--color-gold-deep);
+}
+
+@keyframes coreGlow {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 04 — THE OFFICIAL INVITATION (ROYAL EDITORIAL PRINT)
+   -------------------------------------------------------------------------- */
+.screen-royal-invitation {
+  position: relative;
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+.royal-stationery-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.45);
+  border-radius: 16px;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  box-shadow: var(--shadow-luxury);
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.stationery-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-gold-base);
+}
+
+.stationery-corner.top-right {
+  top: 12px;
+  right: 12px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.stationery-corner.top-left {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.stationery-corner.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
+
+.stationery-corner.bottom-left {
+  bottom: 12px;
+  left: 12px;
+  border-right: none;
+  border-top: none;
+}
+
+.stationery-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stationery-eyebrow {
+  font-family: var(--font-arabic-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-deep);
+}
+
+.invitation-main-title {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
+}
+
+.invitation-main-statement {
+  font-family: var(--font-arabic-body);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.95;
+  color: var(--color-text-secondary);
+  max-width: 44ch;
+  margin-inline: auto;
+  margin-bottom: 2.5rem;
+}
+
+.stationery-footer {
+  border-top: 1px solid rgba(197, 164, 90, 0.25);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-sig-block {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sig-name {
+  font-family: var(--font-arabic-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.sig-role {
+  font-family: var(--font-arabic-body);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.seal-gold-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(197, 164, 90, 0.15);
+  border: 1px solid var(--color-gold-base);
+  font-size: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 05 & 06 — THE MOMENT & TYPOGRAPHIC TIME INSTALLATION
+   -------------------------------------------------------------------------- */
+.screen-moment {
+  position: relative;
+  padding-block: clamp(4rem, 7vw, 7rem);
+  background: linear-gradient(180deg, #FAF8F3 0%, #F2EDE2 50%, #FAF8F3 100%);
+}
+
+.moment-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.royal-date-banner {
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.35);
+  border-radius: 14px;
+  padding: 1.6rem 2.8rem;
+  text-align: center;
+  box-shadow: var(--shadow-stationery);
+}
+
+.date-day-badge {
+  font-family: var(--font-arabic-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-gold-deep);
+  margin-bottom: 0.35rem;
+}
+
+.date-main-digits {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.date-gregorian {
+  font-family: var(--font-arabic-body);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.official-program-timeline {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.32);
+  border-radius: 20px;
+  padding: clamp(1.8rem, 3.8vw, 2.8rem) clamp(1.2rem, 3vw, 2.4rem);
+  box-shadow: 0 16px 40px rgba(0, 43, 85, 0.06), 0 2px 10px rgba(197, 164, 90, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* Subtle luxury watermark / ambient background inside the timeline card */
+.official-program-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 90% 10%, rgba(197, 164, 90, 0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Connecting Vertical Spine Track */
+.timeline-spine-track {
+  position: absolute;
+  top: clamp(3rem, 5vw, 3.8rem);
+  bottom: clamp(3rem, 5vw, 3.8rem);
+  right: calc(clamp(1.2rem, 3vw, 2.4rem) + 24px);
+  width: 2px;
+  transform: translateX(50%);
+  background: linear-gradient(
+    180deg,
+    rgba(197, 164, 90, 0.2) 0%,
+    rgba(197, 164, 90, 0.8) 25%,
+    rgba(0, 43, 85, 0.75) 55%,
+    rgba(197, 164, 90, 0.8) 80%,
+    rgba(197, 164, 90, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+/* Program Row */
+.program-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Beacon Node */
+.timeline-node-beacon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 164, 90, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-aviation-deep);
+  box-shadow: 0 4px 14px rgba(0, 43, 85, 0.08), 0 0 0 4px rgba(197, 164, 90, 0.08);
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-node-beacon.highlight {
+  border-color: var(--color-gold-base);
+  background: linear-gradient(135deg, #FAF4E6 0%, #FFFFFF 100%);
+  color: var(--color-gold-deep);
+  box-shadow: 0 6px 20px rgba(197, 164, 90, 0.3), 0 0 0 5px rgba(197, 164, 90, 0.15);
+}
+
+.beacon-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(197, 164, 90, 0.4);
+  opacity: 0;
+  animation: beaconPulseAnim 3s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.timeline-node-beacon.highlight .beacon-pulse {
+  border-color: rgba(197, 164, 90, 0.6);
+  animation: beaconPulseAnim 2.2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes beaconPulseAnim {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+.beacon-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-item-row:hover .timeline-node-beacon {
+  transform: scale(1.08);
+  border-color: var(--color-gold-deep);
+  box-shadow: 0 6px 22px rgba(197, 164, 90, 0.35), 0 0 0 5px rgba(197, 164, 90, 0.15);
+}
+
+/* Card Content Box */
+.program-card-content {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.22);
+  border-radius: 14px;
+  padding: clamp(1.1rem, 2.4vw, 1.6rem);
+  box-shadow: 0 4px 16px rgba(0, 43, 85, 0.03);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.program-item-row:hover .program-card-content {
+  transform: translateX(-4px);
+  border-color: rgba(197, 164, 90, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 43, 85, 0.08);
+}
+
+/* Highlighted Iftar Card */
+.program-item-row.highlight .program-card-content {
+  background: linear-gradient(135deg, rgba(255, 253, 247, 0.98) 0%, rgba(252, 248, 237, 0.95) 100%);
+  border: 1.5px solid rgba(197, 164, 90, 0.6);
+  box-shadow: 0 8px 30px rgba(197, 164, 90, 0.16), 0 2px 8px rgba(0, 43, 85, 0.04);
+}
+
+.program-item-row.highlight:hover .program-card-content {
+  border-color: var(--color-gold-base);
+  box-shadow: 0 12px 36px rgba(197, 164, 90, 0.25);
+}
+
+/* Program Card Header */
+.program-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Time Pill */
+.time-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+  background: rgba(0, 43, 85, 0.05);
+  border: 1px solid rgba(0, 43, 85, 0.12);
+}
+
+.time-pill.highlight-pill {
+  background: linear-gradient(135deg, rgba(197, 164, 90, 0.18) 0%, rgba(197, 164, 90, 0.08) 100%);
+  border-color: rgba(197, 164, 90, 0.45);
+}
+
+.time-badge {
+  font-family: var(--font-arabic-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-aviation-deep);
+  line-height: 1;
+}
+
+.time-badge.highlight {
+  color: var(--color-gold-deep);
+  font-weight: 800;
+}
+
+/* Time Label Tag */
+.time-label-tag {
+  font-family: var(--font-arabic-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: rgba(0, 43, 85, 0.03);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 43, 85, 0.06);
+}
+
+.time-label-tag.highlight-tag {
+  color: var(--color-gold-deep);
+  background: rgba(197, 164, 90, 0.12);
+  border: 1px solid rgba(197, 164, 90, 0.35);
+  font-weight: 700;
+}
+
+.tag-sparkle {
+  margin-left: 0.25rem;
+  display: inline-block;
+}
+
+/* Titles and descriptions */
+.program-row-title {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.program-row-desc {
+  font-family: var(--font-arabic-body);
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Typographic Time Installation */
+.typographic-countdown-card {
+  width: 100%;
+  max-width: 780px;
+  padding: clamp(1.6rem, 2.8vw, 2.4rem);
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.28);
+  border-radius: 16px;
+  box-shadow: var(--shadow-stationery);
+  text-align: center;
+}
+
+.countdown-heading {
+  font-family: var(--font-arabic-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.countdown-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2.2vw, 2.2rem);
+  direction: ltr;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 65px;
+}
+
+.countdown-separator {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: rgba(197, 164, 90, 0.6);
+  font-weight: 300;
+  margin-bottom: 0.85rem;
+}
+
+.countdown-digits {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.countdown-label {
+  font-family: var(--font-arabic-body);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 07 — ARRIVAL & INTERACTIVE MAP
+   -------------------------------------------------------------------------- */
+.screen-destination {
+  position: relative;
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+.destination-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+  width: 100%;
+}
+
+.architectural-venue-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(197, 164, 90, 0.45);
+  box-shadow: var(--shadow-luxury);
+  min-height: clamp(420px, 48vh, 520px);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.2rem, 2.5vw, 2rem);
+  background: #020817;
+}
+
+.arch-stage-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-cinematic);
+}
+
+.architectural-venue-card:hover .arch-stage-svg {
+  transform: scale(1.02);
+}
+
+.venue-overlay-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  padding: clamp(1.25rem, 2vw, 1.6rem);
+  border-radius: 14px;
+  border: 1px solid rgba(197, 164, 90, 0.4);
+  box-shadow: 0 12px 35px rgba(0, 43, 85, 0.18);
+  text-align: right;
+}
+
+.venue-eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-arabic-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gold-deep);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.08em;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: var(--color-gold-base);
+}
+
+.destination-place-name {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.venue-address-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.venue-pin-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(197, 164, 90, 0.15);
+  border: 1px solid rgba(197, 164, 90, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-gold-deep);
+  margin-top: 2px;
+}
+
+.venue-pin-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold-deep);
+}
+
+.venue-address-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.address-street {
+  font-family: var(--font-arabic-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-aviation-deep);
+  line-height: 1.4;
+}
+
+.address-region {
+  font-family: var(--font-arabic-body);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.venue-feature-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-arabic-display);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--color-gold-deep);
+  background: rgba(197, 164, 90, 0.1);
+  border: 1px solid rgba(197, 164, 90, 0.25);
+  border-radius: 20px;
+  padding: 0.35rem 0.8rem;
+}
+
+.feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold-base);
+}
+
+/* Interactive Map Frame Card */
+.destination-map-wrapper {
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.35);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-luxury);
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(380px, 45vh, 480px);
+}
+
+.map-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1.2rem;
+  background: #FAF8F3;
+  border-bottom: 1px solid rgba(197, 164, 90, 0.2);
+  flex-wrap: nowrap;
+}
+
+.map-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.map-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold-base);
+  box-shadow: 0 0 10px var(--color-gold-base);
+  animation: pulseDot 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 12px var(--color-gold-light);
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+.map-title-label {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(0.75rem, 1.1vw, 0.86rem);
+  font-weight: 600;
+  color: var(--color-aviation-deep);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.btn-map-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-arabic-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-aviation-deep);
+  background: rgba(197, 164, 90, 0.15);
+  border: 1px solid rgba(197, 164, 90, 0.45);
+  border-radius: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s var(--ease-smooth);
+}
+
+.btn-map-directions:hover {
+  background: var(--grad-aviation-blue);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.map-iframe-container {
+  flex: 1;
+  width: 100%;
+  min-height: 320px;
+  position: relative;
+  background: #EDE7DA;
+}
+
+.map-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 08 — OFFICIAL PARTNERS
+   -------------------------------------------------------------------------- */
+.screen-partners {
+  position: relative;
+  text-align: center;
+  padding-block: clamp(4rem, 6vw, 6rem);
+  background: var(--grad-paper-warm);
+}
+
+.partners-executive-block {
+  margin-bottom: 2rem;
+}
+
+.partners-hierarchy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.75rem, 4vw, 4rem);
+  flex-wrap: wrap;
+}
+
+.partner-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partner-tier-label {
+  font-family: var(--font-english-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--color-gold-deep);
+  margin-bottom: 1.1rem;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   SCENE 09 — THE FINAL INVITATION & RSVP FINALE
+   -------------------------------------------------------------------------- */
+.screen-rsvp {
+  position: relative;
+  text-align: center;
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+.rsvp-box {
+  max-width: 660px;
+  width: 100%;
+  margin-inline: auto;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.4);
+  border-radius: 20px;
+  padding: clamp(1.8rem, 4vw, 3.2rem) clamp(1.15rem, 3.5vw, 2.5rem);
+  box-shadow: var(--shadow-luxury);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.rsvp-choices {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.rsvp-choice-btn {
+  flex: 1;
+  min-width: 200px;
+  padding: 1.1rem 1.6rem;
+  border-radius: 12px;
+  font-family: var(--font-arabic-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-smooth);
+  white-space: nowrap;
+}
+
+.rsvp-choice-btn.primary {
+  background: var(--grad-aviation-blue);
+  color: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 43, 85, 0.2);
+}
+
+.rsvp-choice-btn.secondary {
+  background: #FFFFFF;
+  color: var(--color-text-secondary);
+  border: 1px solid rgba(0, 43, 85, 0.2);
+}
+
+.rsvp-choice-btn:hover {
+  transform: translateY(-2px);
+}
+
+.rsvp-choice-btn.primary:hover {
+  box-shadow: 0 14px 35px rgba(0, 43, 85, 0.3), 0 0 20px rgba(197, 164, 90, 0.3);
+}
+
+.rsvp-form-progressive {
+  margin-top: 2.2rem;
+  text-align: right;
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rsvp-form-progressive.active {
+  display: block;
+}
+
+.form-step {
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInStep 0.4s var(--ease-smooth) forwards;
+}
+
+.form-step.current {
+  display: block;
+}
+
+@keyframes fadeInStep {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-field-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-arabic-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-aviation-deep);
+  margin-bottom: 0.55rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.92rem 1.2rem;
+  background: #FAF8F3;
+  border: 1px solid rgba(0, 43, 85, 0.2);
+  border-radius: 10px;
+  color: var(--color-aviation-deep);
+  font-family: var(--font-arabic-body);
+  font-size: 0.98rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 85px;
+  max-height: 220px;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-gold-base);
+  box-shadow: 0 0 15px rgba(197, 164, 90, 0.3);
+}
+
+.form-step-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.8rem;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-step-controls .btn-magnetic {
+  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+}
+
+.form-step-controls .btn-magnetic-ghost {
+  padding: 0.75rem 1.6rem;
+}
+
+.form-step-controls #btn-submit-rsvp {
+  padding: 0.75rem 2.4rem;
+}
+
+.step-indicator {
+  font-family: var(--font-arabic-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-gold-deep);
+  background: rgba(197, 164, 90, 0.09);
+  border: 1px solid rgba(197, 164, 90, 0.22);
+  padding: 0.32rem 0.85rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   CLOSING SIGNATURE & CONFIRMATION
+   -------------------------------------------------------------------------- */
+.screen-closing {
+  position: relative;
+  text-align: center;
+  padding-block: clamp(4rem, 6vw, 7rem);
+}
+
+.closing-signature-block {
+  border-top: 1px solid rgba(197, 164, 90, 0.25);
+  padding-top: 2.5rem;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.closing-statement {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.75rem, 3.6vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  max-width: 26ch;
+  margin-inline: auto;
+}
+
+.closing-greeting {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--color-gold-deep);
+  margin-bottom: 2rem;
+}
+
+.closing-copyright {
+  font-family: var(--font-arabic-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+#confirmation-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 43, 85, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-cinematic), visibility 0.5s;
+}
+
+#confirmation-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.confirmation-card {
+  max-width: 580px;
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 164, 90, 0.45);
+  border-radius: 18px;
+  padding: clamp(2rem, 4vw, 3.2rem) clamp(1.25rem, 3vw, 2.5rem);
+  box-shadow: 0 25px 80px rgba(0, 43, 85, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.confirmation-crescent-icon {
+  width: 70px;
+  height: 70px;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 15px rgba(197, 164, 90, 0.4));
+}
+
+.confirmation-title {
+  font-family: var(--font-arabic-display);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.confirmation-message {
+  font-family: var(--font-arabic-body);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+.confirmation-details-seal {
+  background: #FAF8F3;
+  border: 1px dashed rgba(197, 164, 90, 0.5);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.seal-text {
+  font-family: var(--font-arabic-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-close-confirmation {
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   JOURNEY PROGRESS TRACKER & CURSOR
+   -------------------------------------------------------------------------- */
+.journey-progress-nav {
+  position: fixed;
+  left: clamp(1rem, 2vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.progress-step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity 0.25s ease;
+  text-decoration: none;
+}
+
+.progress-step-item:hover,
+.progress-step-item.active {
+  opacity: 1;
+}
+
+.progress-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-gold-deep);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.progress-step-item.active .progress-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 8px var(--color-gold-deep);
+}
+
+.progress-label {
+  font-family: var(--font-arabic-display);
+  font-size: 0.72rem;
+  color: var(--color-aviation-deep);
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.progress-step-item:hover .progress-label,
+.progress-step-item.active .progress-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.custom-cursor-dot,
+.custom-cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-gold-deep);
+}
+
+.custom-cursor-outline {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 43, 85, 0.3);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+body.cursor-hover .custom-cursor-outline {
+  width: 50px;
+  height: 50px;
+  border-color: var(--color-gold-base);
+  background: rgba(197, 164, 90, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (DOWN TO MOBILE 375px / 506px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .destination-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partners-hierarchy {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-cursor-dot,
+  .custom-cursor-outline {
+    display: none !important;
+  }
+
+  .journey-progress-nav {
+    display: none;
+  }
+
+  .countdown-grid {
+    gap: 0.4rem;
+  }
+
+  .countdown-digits {
+    font-size: 1.95rem;
+  }
+
+  .countdown-unit {
+    min-width: 48px;
+  }
+
+  .architectural-venue-card {
+    min-height: 350px;
+    padding: 1.25rem;
+  }
+
+  .destination-map-wrapper {
+    min-height: 320px;
+  }
+
+  .royal-stationery-card {
+    padding: 2rem 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Program Timeline */
+  .official-program-timeline {
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .timeline-spine-track {
+    right: calc(1rem + 20px);
+  }
+
+  .timeline-node-beacon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    margin-top: 0.2rem;
+  }
+
+  .timeline-node-beacon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .program-item-row {
+    gap: 0.85rem;
+  }
+
+  .program-card-content {
+    padding: 1rem 0.95rem;
+  }
+
+  .time-pill {
+    padding: 0.22rem 0.65rem;
+  }
+
+  .time-badge {
+    font-size: 1.02rem;
+  }
+
+  .time-label-tag {
+    font-size: 0.76rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .program-row-title {
+    font-size: 1.02rem;
+  }
+
+  .program-row-desc {
+    font-size: 0.88rem;
+  }
+
+  /* RSVP Box & Progressive Form Mobile Responsive Fix */
+  .rsvp-box {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  .rsvp-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  .rsvp-choice-btn {
+    min-width: 0;
+    padding: 0.75rem 0.35rem;
+    font-size: 0.84rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .rsvp-form-progressive {
+    margin-top: 1.35rem;
+  }
+
+  .form-field-group {
+    margin-bottom: 1.1rem;
+  }
+
+  .form-label {
+    font-size: 0.88rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  /* Step 1: Horizontal spacing */
+  #rsvp-step-1 .form-step-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #rsvp-step-1 .form-step-controls .step-indicator {
+    order: 1;
+    font-size: 0.78rem;
+  }
+
+  #rsvp-step-1 .form-step-controls .btn-magnetic {
+    order: 2;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* Step 2 & Step 3: Top bar with indicator + prev, bottom full-width button */
+  #rsvp-step-2 .form-step-controls,
+  #rsvp-step-3 .form-step-controls {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  #rsvp-step-2 .form-step-controls .step-indicator,
+  #rsvp-step-3 .form-step-controls .step-indicator {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  #rsvp-step-2 .form-step-controls .btn-magnetic-ghost,
+  #rsvp-step-3 .form-step-controls .btn-magnetic-ghost {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.84rem;
+    border-radius: 50px;
+  }
+
+  #rsvp-step-2 .form-step-controls #btn-step-2-next,
+  #rsvp-step-3 .form-step-controls #btn-submit-rsvp {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.98rem;
+    border-radius: 50px;
+    margin-top: 0.25rem;
+    box-shadow: 0 8px 25px rgba(0, 43, 85, 0.22);
+  }
+}
+
+@media (max-width: 480px) {
+  .map-header-bar {
+    padding: 0.65rem 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .map-title-label {
+    font-size: 0.74rem;
+  }
+
+  .btn-map-directions {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.72rem;
+    gap: 0.25rem;
+  }
+}
